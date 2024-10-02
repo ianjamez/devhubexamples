@@ -131,7 +131,7 @@ spec:
  #      outputFile: "bwce-catalog-info.yaml"
         outputStructure:
           apiVersion: backstage.io/v1alpha1
-	  kind: API
+          kind: API
           metadata:
 	    name: ${{ steps.extract.output.bwce_project_name[0] + "_api" }}
             description: ${{ "An API provided by " +  steps.extract.output.bwce_project_name[0] }}

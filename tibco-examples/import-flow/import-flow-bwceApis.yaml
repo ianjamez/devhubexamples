@@ -130,29 +130,28 @@ spec:
         outputFile: ${{  parameters.application + '/'+ parameters.application + "-bwce-catalog-api-info.yaml" }}
  #      outputFile: "bwce-catalog-info.yaml"
         outputStructure:
-		apiVersion: backstage.io/v1alpha1
-		kind: API
-		metadata:
-		  name: ${{ steps.extract.output.bwce_project_name[0] + "_api" }}
-		  description: ${{ "An API provided by " +  steps.extract.output.bwce_project_name[0] }}
-		  tags:
-		    - store
-		    - rest
-		  links:
-		    - url: ${{ "https://"  + (parameters.repoUrl | parseRepoUrl).host + "/" + (parameters.repoUrl | parseRepoUrl).owner + "/" +  (parameters.repoUrl | parseRepoUrl).repo }}
-		      title: GitHub Repo
-		      icon: github
-		    - url: ${{ "https://"  + (parameters.repoUrl | parseRepoUrl).host + "/" + (parameters.repoUrl | parseRepoUrl).owner + "/" +  (parameters.repoUrl | parseRepoUrl).repo + "/" + parameters.apijsonlocation}}
-		      title: API Spec
-		      icon: code
-		spec:
-		  type: openapi
-		  lifecycle: production
-		  owner: ${{ parameters.owner }}
-		  providesApi:
-		    ['${{ "component:" + steps.extract.output.bwce_project_name[0]}}']
-		  definition:
-		    $text: ${{ "./" + parameters.apijsonlocation}}
+          apiVersion: backstage.io/v1alpha1
+	  kind: API
+          metadata:
+	    name: ${{ steps.extract.output.bwce_project_name[0] + "_api" }}
+            description: ${{ "An API provided by " +  steps.extract.output.bwce_project_name[0] }}
+	    tags:
+              - store
+	      - rest
+            links:
+	      - url: ${{ "https://"  + (parameters.repoUrl | parseRepoUrl).host + "/" + (parameters.repoUrl | parseRepoUrl).owner + "/" +  (parameters.repoUrl | parseRepoUrl).repo }}
+                title: GitHub Repo
+		icon: github
+              - url: ${{ "https://"  + (parameters.repoUrl | parseRepoUrl).host + "/" + (parameters.repoUrl | parseRepoUrl).owner + "/" +  (parameters.repoUrl | parseRepoUrl).repo + "/" + parameters.apijsonlocation}}
+	        title: API Spec
+	        icon: code
+	 spec:
+           type: openapi
+	   lifecycle: production
+           owner: ${{ parameters.owner }}
+	   providesApi: ['${{ "component:" + steps.extract.output.bwce_project_name[0]}}']
+           definition:
+	     $text: ${{ "./" + parameters.apijsonlocation}}
 # The import flow debug step, enable it for debugging
 
 #   - id: Log Debug

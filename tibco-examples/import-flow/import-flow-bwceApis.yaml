@@ -139,19 +139,19 @@ spec:
               - store
               - rest
             links:
-	      - url: ${{ "https://"  + (parameters.repoUrl | parseRepoUrl).host + "/" + (parameters.repoUrl | parseRepoUrl).owner + "/" +  (parameters.repoUrl | parseRepoUrl).repo }}
+              - url: ${{ "https://"  + (parameters.repoUrl | parseRepoUrl).host + "/" + (parameters.repoUrl | parseRepoUrl).owner + "/" +  (parameters.repoUrl | parseRepoUrl).repo }}
                 title: GitHub Repo
-		icon: github
+                icon: github
               - url: ${{ "https://"  + (parameters.repoUrl | parseRepoUrl).host + "/" + (parameters.repoUrl | parseRepoUrl).owner + "/" +  (parameters.repoUrl | parseRepoUrl).repo + "/" + parameters.apijsonlocation}}
-	        title: API Spec
-	        icon: code
-	 spec:
+                title: API Spec
+                icon: code
+          spec:
            type: openapi
-	   lifecycle: production
+           lifecycle: production
            owner: ${{ parameters.owner }}
-	   providesApi: ['${{ "component:" + steps.extract.output.bwce_project_name[0]}}']
+           providesApi: ['${{ "component:" + steps.extract.output.bwce_project_name[0]}}']
            definition:
-	     $text: ${{ "./" + parameters.apijsonlocation}}
+             $text: ${{ "./" + parameters.apijsonlocation}}
 # The import flow debug step, enable it for debugging
 
 #   - id: Log Debug

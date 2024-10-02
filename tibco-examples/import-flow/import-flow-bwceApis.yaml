@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: import-flow-bwce-api
   title: Import flow for BWCE projects with api
-  description: Import existing BWCE projects into TIBCO Developer Hub
+  description: Import existing BWCE APIs into TIBCO Developer Hub
   tags:
     - import-flow
     - tibco

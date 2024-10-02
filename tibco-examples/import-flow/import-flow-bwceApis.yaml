@@ -133,11 +133,11 @@ spec:
           apiVersion: backstage.io/v1alpha1
           kind: API
           metadata:
-	    name: ${{ steps.extract.output.bwce_project_name[0] + "_api" }}
+            name: ${{ steps.extract.output.bwce_project_name[0] + "_api" }}
             description: ${{ "An API provided by " +  steps.extract.output.bwce_project_name[0] }}
-	    tags:
+            tags:
               - store
-	      - rest
+              - rest
             links:
 	      - url: ${{ "https://"  + (parameters.repoUrl | parseRepoUrl).host + "/" + (parameters.repoUrl | parseRepoUrl).owner + "/" +  (parameters.repoUrl | parseRepoUrl).repo }}
                 title: GitHub Repo

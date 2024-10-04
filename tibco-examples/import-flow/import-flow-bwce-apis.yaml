@@ -133,7 +133,14 @@ spec:
             lifecycle: production
             owner: ${{ parameters.owner }}
             providesApi: ['${{ "component:" + steps.extract.output.bwce_project_name[0]}}']
-            definition: 
-              $text: ${{ "./" + parameters.apijsonlocation}}
-
- 
+            #definition: 
+            #  $text: ${{ "./" + parameters.apijsonlocation}}
+    - id: cpr
+      name: Create Pull Request in Current Repo
+      action: publish:github:pull-request
+      input:
+        repoUrl: ${{ parameters.repoUrl }}
+        update: true
+        branchName: ${{ parameters.application.replace("/", ".") }}
+        title: ${{ parameters.application }}
+        description: This PR adds a Component YAML to this Repository.

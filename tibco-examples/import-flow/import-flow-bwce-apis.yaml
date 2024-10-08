@@ -133,8 +133,10 @@ spec:
             lifecycle: production
             owner: ${{ parameters.owner }}
             providesApi: ['${{ "component:" + steps.extract.output.bwce_project_name[0]}}']
+            #definition: 
+            #  $text: ${{ "./" + parameters.apijsonlocation}}
             definition: 
-              $text: ${{ "./" + parameters.apijsonlocation}}
+              $text: ${{ "{{" }} "./" + parameters.apijsonlocation {{ "}}" }}
     - id: cpr
       name: Create Pull Request in Current Repo
       action: publish:github:pull-request

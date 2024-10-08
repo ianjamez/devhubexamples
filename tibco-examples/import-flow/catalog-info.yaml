@@ -16,6 +16,6 @@ metadata:
   name: import-flow-locations
 spec:
   targets:
-    #- ./import-flow-bwce.yaml
-    #- ./import-flow-flogo.yaml
-    - ./import-flow-bwce-apis.yaml
+    - ./import-flow-bwce.yaml
+    - ./import-flow-flogo.yaml
+    #- ./import-flow-bwce-apis.yaml
